@@ -27,7 +27,7 @@ import user from './pages/user.js';
 
 export const history = createHistory();
 const theme = createMuiTheme(themeFile);
-//axios.defaults.baseURL = 'https://us-central1-rooster-a8505.cloudfunctions.net/api';
+axios.defaults.baseURL = 'https://us-central1-rooster-a8505.cloudfunctions.net/api';
 //let authenticated = false;
 //console.log(localStorage)
 const token = localStorage.FbIdToken;
