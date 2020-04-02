@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rooster/static/css/main.2c85bb11.chunk.css",
-    "main.js": "/rooster/static/js/main.4b65422b.chunk.js",
-    "main.js.map": "/rooster/static/js/main.4b65422b.chunk.js.map",
+    "main.js": "/rooster/static/js/main.75576fb5.chunk.js",
+    "main.js.map": "/rooster/static/js/main.75576fb5.chunk.js.map",
     "runtime-main.js": "/rooster/static/js/runtime-main.11466a17.js",
     "runtime-main.js.map": "/rooster/static/js/runtime-main.11466a17.js.map",
     "static/js/2.17c9fcd9.chunk.js": "/rooster/static/js/2.17c9fcd9.chunk.js",
     "static/js/2.17c9fcd9.chunk.js.map": "/rooster/static/js/2.17c9fcd9.chunk.js.map",
     "index.html": "/rooster/index.html",
-    "precache-manifest.59e7c213780397e54083cadfafc467a4.js": "/rooster/precache-manifest.59e7c213780397e54083cadfafc467a4.js",
+    "precache-manifest.f05ba3352d5c739577de2260ce05c5f3.js": "/rooster/precache-manifest.f05ba3352d5c739577de2260ce05c5f3.js",
     "service-worker.js": "/rooster/service-worker.js",
     "static/css/main.2c85bb11.chunk.css.map": "/rooster/static/css/main.2c85bb11.chunk.css.map",
     "static/js/2.17c9fcd9.chunk.js.LICENSE": "/rooster/static/js/2.17c9fcd9.chunk.js.LICENSE",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.11466a17.js",
     "static/js/2.17c9fcd9.chunk.js",
     "static/css/main.2c85bb11.chunk.css",
-    "static/js/main.4b65422b.chunk.js"
+    "static/js/main.75576fb5.chunk.js"
   ]
 }
