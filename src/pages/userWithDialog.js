@@ -9,27 +9,19 @@ import StaticProfile from '../components/profile/StaticProfile.js';
 import ScreamSkeleton from '../util/ScreamSkeleton.js';
 import ProfileSkeleton from '../util/ProfileSkeleton.js';
 import Box from '@material-ui/core/Box';
-function User(props) {
-    console.log('user comp called');
-    //console.log(props);
+function UserWithDialog(props) {
+    console.log('user with Dialog Component Called');
     const [state, setState] = useState({ profile: null, screamIdParam: null })
-    const  [url, setUrl] = useState(window.location.href);
+    
         const handle = props.match.params.handle;
         const screamId = props.match.params.screamId;
-        console.log(props.data.showDialog);
-        //const url = window.location.href;
         console.log(screamId);
         console.log(props);
-        useEffect(() => {
-          
-            console.log('use effect in user')
+        useEffect(() => {    
+            console.log('use effect in userWIth Dialog Called');
         if(screamId){
             setState({...state, screamIdParam: screamId})
         }
-    },[ props.data.showDialog])
-
-    
-        useEffect(() => {
         props.getUserDataFromHandle(handle);
         axios.get(`/user/${handle}`)
             .then(res => {
@@ -38,8 +30,7 @@ function User(props) {
             .catch(err => {
                 console.log(err);
             })
-    }, [props.match.params.screamId])
-
+    }, [props.match.params.screamId, props.data.showDialog])
     const screams = props.data.screams;
     const loading = props.data.loading;
     const screamsMarkup = loading ? (<ScreamSkeleton/>)
@@ -53,7 +44,7 @@ function User(props) {
             return <Scream key={scream.screamId} screamData={scream} openDialog />
             }
     }
-    )) : (screams.map(scream =>
+    )) : (console.log('last part is being called'),screams.map(scream =>
         <Scream key={scream.screamId} screamData={scream} />
     ))))
     return (
@@ -77,11 +68,11 @@ function User(props) {
     )
 }
 
-User.propTypes = {
+UserWithDialog.propTypes = {
     getUserDataFromHandle: propTypes.func.isRequired,
     data: propTypes.object.isRequired
 }
 const mapStateToProps = state => ({
     data: state.data
 })
-export default connect(mapStateToProps, { getUserDataFromHandle })(User);
+export default connect(mapStateToProps, { getUserDataFromHandle })(UserWithDialog);

@@ -10,6 +10,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { markNotificationsRead } from '../../redux/actions/userAction.js';
+import {showDialog} from '../../redux/actions/dataAction.js'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatIcon from '@material-ui/icons/Chat';
 //import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -62,10 +63,12 @@ let unReadNotificationIds = props.notifications.filter(notif => !notif.read).map
            const notifIcon = notif.type === 'like'? <FavoriteIcon color={iconColor} style={{marginRight: 10}}/> 
            : 
            <ChatIcon color={iconColor} style={{marginRight: 10}} />
-        
+           let linkTo;
+           const currentLoc = window.location.href;
+           currentLoc.includes('users') ? linkTo = `/users/${notif.recipient}/screams/${notif.screamId}` : linkTo = `/users/${notif.recipient}/screams/${notif.screamId}`
         return (
             <MenuItem key={notif.createdAt} onClick = {handleClose} >
-            {notifIcon} <Typography component={Link} to={`/users/${notif.recipient}/screams/${notif.screamId}`}>
+            {notifIcon} <Typography onClick ={props.showDialog} component={Link} to={linkTo}>
             {notif.sender} {textMarkup} your scream {time}
             </Typography>
             </MenuItem>
@@ -101,6 +104,8 @@ const mapStateToProps = state => ({
     notifications: state.user.notifications
 })
 const mapActionsToProps = {
-    markNotificationsRead
+    markNotificationsRead,
+    showDialog
+
 }
 export default connect(mapStateToProps, mapActionsToProps)(Notifications);

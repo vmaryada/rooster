@@ -1,9 +1,10 @@
-import {LOADING_DATA, SET_SCREAMS,LIKE_SCREAM, UNLIKE_SCREAM, SET_SCREAM, DELETE_SCREAM, POST_SCREAM, POST_COMMENT} from '../types.js'
+import {LOADING_DATA, SET_SCREAMS,LIKE_SCREAM, UNLIKE_SCREAM, SET_SCREAM, DELETE_SCREAM, POST_SCREAM, POST_COMMENT, SHOW_DIALOG, HIDE_DIALOG} from '../types.js'
 
 const initialState ={
     screams: [],
     scream :{},
-    loading:false 
+    loading:false,
+    showDialog: 0 
 }
 
 const dataReducer = (state = initialState, action) => {
@@ -66,7 +67,16 @@ const dataReducer = (state = initialState, action) => {
         return {
             ...state
         }
-        
+        case SHOW_DIALOG:
+        console.log('show Dialog called');
+        return{
+            ...state, showDialog: state.showDialog + 1
+        }
+        /*case HIDE_DIALOG:
+        console.log('hide Dialog called');
+        return{
+            ...state, showDialog: state.showDialog + 1
+        }*/
         default:
         return state
     }

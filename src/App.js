@@ -21,11 +21,13 @@ import {SET_AUTHENTICATED} from './redux/types.js';
 import {logoutUser, getUserData} from './redux/actions/userAction.js'
 import axios from 'axios';
 import user from './pages/user.js';
+//import userModal from './pages/userModal.js';
+//import userWIthDialog from './pages/userWithDialog.js';
 
 
 export const history = createHistory();
 const theme = createMuiTheme(themeFile);
-axios.defaults.baseURL = 'https://us-central1-rooster-a8505.cloudfunctions.net/api';
+//axios.defaults.baseURL = 'https://us-central1-rooster-a8505.cloudfunctions.net/api';
 //let authenticated = false;
 //console.log(localStorage)
 const token = localStorage.FbIdToken;
@@ -63,7 +65,7 @@ function App() {
     <AuthRoute exact path="/login"  component = {login}/> 
     <AuthRoute exact path="/signup"  component = {signup}/>
     <Route exact path="/users/:handle"  component = {user}/>
-    <Route exact path="/users/:handle/screams/:screamId"  component = {user}/>
+    <Route exact path="/users/:handle/screams/:screamId" component = {user}/> 
     <h1>Rooster</h1>
     </Switch>  
     </div> 

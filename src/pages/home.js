@@ -15,12 +15,12 @@ let recentScreamMarkup;
 let loading;
     useEffect(()=> {
  props.getScreams();
-  
+  console.log(loading);
 },[]);
 loading = props.data.loading;
-console.log(loading);
 useEffect(()=>{
 setScreams(props.data.screams);
+console.log(loading);
 },[props.data.screams])
 recentScreamMarkup = !loading ? (screams.map(screamData => <Scream key={screamData.screamId} screamData={screamData} />)  ) : <ScreamSkeleton/>
     console.log('Home page')

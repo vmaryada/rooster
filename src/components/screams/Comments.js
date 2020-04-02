@@ -18,7 +18,7 @@ commentData: {
 }
 })
 function Comments(props) {
-    console.log(props);
+   // console.log(props);
     const comments = props.comments;
     const classes = props.classes;
     return (

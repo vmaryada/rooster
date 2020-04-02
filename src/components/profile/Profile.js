@@ -73,7 +73,7 @@ function Profile(props) {
         const formData = new FormData();
         formData.append('image', image, image.name);
         props.uploadImage(formData);
-        console.log(formData);
+      //  console.log(formData);
     }
     const editProfileImage = () => {
         document.getElementById('profileImageUpload').click();
@@ -81,12 +81,12 @@ function Profile(props) {
     const logoutUser = () => {
         props.logoutUser();
     }
-    console.log(props.user.authenticated);
-    console.log(props.user.loading)
+  //  console.log(props.user.authenticated);
+  //  console.log(props.user.loading)
     const classes = props.classes;
     let user = {};
     user = { ...props.user.credentials, loading: props.user.loading };
-    console.log(user);
+   // console.log(user);
     let authenticatedContent = <Paper className={classes.paper}>
         <div className={classes.profile}>
             <div className="image-wrapper" style={{ textAlign: 'center' }}>
@@ -139,7 +139,7 @@ function Profile(props) {
             <Button variant="contained" color="primary" component={Link} to="/signup">signup</Button>
         </div>
     </Paper>
-    console.log(dayjs(user.createdAt).format('MMM YYYY'));
+  // console.log(dayjs(user.createdAt).format('MMM YYYY'));
     return (
         <div>
             {user.loading ? <ProfileSkeleton /> : props.user.authenticated ? authenticatedContent : unAuthenticatedContent}

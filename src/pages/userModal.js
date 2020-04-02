@@ -10,26 +10,18 @@ import ScreamSkeleton from '../util/ScreamSkeleton.js';
 import ProfileSkeleton from '../util/ProfileSkeleton.js';
 import Box from '@material-ui/core/Box';
 function User(props) {
-    console.log('user comp called');
-    //console.log(props);
+    console.log('user Modal called');
+    console.log(props);
     const [state, setState] = useState({ profile: null, screamIdParam: null })
-    const  [url, setUrl] = useState(window.location.href);
+    useEffect(() => {
+        console.log('use effect in UserModal')
         const handle = props.match.params.handle;
         const screamId = props.match.params.screamId;
-        console.log(props.data.showDialog);
-        //const url = window.location.href;
         console.log(screamId);
         console.log(props);
-        useEffect(() => {
-          
-            console.log('use effect in user')
         if(screamId){
             setState({...state, screamIdParam: screamId})
         }
-    },[ props.data.showDialog])
-
-    
-        useEffect(() => {
         props.getUserDataFromHandle(handle);
         axios.get(`/user/${handle}`)
             .then(res => {
@@ -38,8 +30,7 @@ function User(props) {
             .catch(err => {
                 console.log(err);
             })
-    }, [props.match.params.screamId])
-
+    }, [ props.data.showDialog])
     const screams = props.data.screams;
     const loading = props.data.loading;
     const screamsMarkup = loading ? (<ScreamSkeleton/>)

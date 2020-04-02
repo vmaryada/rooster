@@ -51,7 +51,8 @@ const styles = theme => ({
 });
 
 function ScreamDialog(props) {
-   // console.log('Scream Dialog');
+    console.log('Scream Dialog component called');
+    console.log(props);
     const [state, setState] = useState({ body: '', errors: {} });
     const [open, setOpen] = useState(false);
     //const newPath = '';
@@ -63,12 +64,13 @@ function ScreamDialog(props) {
         setState({ ...state, [event.target.name]: event.target.value })
     }*/
     useEffect(() => {
-       // console.log(props.openDialog);
+      console.log('use effect in scream Dialog');
         if (props.openDialog) {
             handleClickOpen();
         }
-    }, [open])
-    const handleClickOpen = () => {
+  //  }, [open])
+    },[props.showDialog])  
+  const handleClickOpen = () => {
         setOpen(true);
         //console.log(open);
         props.getScream(props.screamId);
@@ -159,7 +161,8 @@ ScreamDialog.propTypes = {
 const mapStateToProps = (state) => ({
     UI: state.ui,
     scream: state.data.scream,
-    screams: state.data.screams
+    screams: state.data.screams,
+    showDialog: state.data.showDialog
 })
 const mapActionsToProps = {
     getScream

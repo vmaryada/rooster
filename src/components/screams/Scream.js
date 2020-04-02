@@ -35,7 +35,7 @@ const styles = {
 }
 
 function Scream(props) {
-  
+    console.log('scream component called');
     /*const likedScream = () => {
         if (props.user.likes && props.user.likes.find(like => like.screamId === props.screamData.screamId)) {
             return true
