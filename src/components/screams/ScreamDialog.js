@@ -127,9 +127,13 @@ function ScreamDialog(props) {
     //},[props.screams])
     return (
         <Fragment>
-            <MyButton tipTitle="Expand Scream" onClick={handleClickOpen} tipClassName={classes.expandButton}>
-                <UnFoldMore color="secondary" />
+            <MyButton tipTitle='Comments' onClick={handleClickOpen}>
+                <ChatIcon color="primary" />
             </MyButton>
+            <span onClick={handleClickOpen}>{props.commentCount} Comments</span> 
+            {/*<MyButton tipTitle="Expand Scream" onClick={handleClickOpen} tipClassName={classes.expandButton}>
+                <UnFoldMore color="secondary" />
+    </MyButton> */}
             <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm" className={classes.postDialog}>
 
                 <DialogTitle>
